@@ -55,12 +55,20 @@ Preserve user changes and avoid modifying unrelated files.
 - Do not use absolute paths that point outside the repository.
 - If completing a task appears to require access outside the repository, stop and ask the user for permission before accessing it.
 
+### Sensitive Information
+
+- Do not add secrets, credentials, passwords, API keys, access tokens, private keys, or other authentication material to the repository.
+- Do not copy sensitive information from the local environment into repository files, logs, documentation, tests, fixtures, or examples.
+- Use placeholders or environment-variable references instead of real secret values.
+
 ### Change Approval
 
 - Do not modify, create, rename, or delete any file without explicit user approval.
 - Before making changes, explain which files you intend to change and summarize the planned modifications.
 - Wait for the user's approval before applying any changes.
-- Once approval is granted for a stated set of changes, do not request approval again for individual files or actions within that approved scope.
+- Once approval is granted for a stated set of file changes, do not request approval again for individual file modifications within that approved scope.
+- Approval applies only to the specific change set described immediately before approval and does not carry over to later tasks.
+- Approval for file changes does not imply approval for dependency changes, Git operations, or other separately restricted actions.
 
 ### Git Operation Restrictions
 
