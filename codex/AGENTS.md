@@ -45,6 +45,17 @@ Keep changes narrowly scoped to the request.
 Do not introduce new dependencies, build tools, or directory structures unless they are needed for the task.
 Preserve user changes and avoid modifying unrelated files.
 
+### Implementation Workflow
+
+Before creating files, modifying files, deleting files, or writing code, confirm the intended specification with the user.
+
+1. Clarify the goal, target files, and scope of changes.
+2. Ask questions when requirements or expected behavior are ambiguous.
+3. Present a concise implementation plan.
+4. Wait for explicit user approval before making changes.
+
+Read-only inspection within the repository may be performed as needed, but implementation must not begin until the workflow above is complete.
+
 ### File Access Restrictions
 
 - Work only within the current repository root and its descendants.
