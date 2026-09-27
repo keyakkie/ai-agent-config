@@ -2,7 +2,7 @@
 
 ## Project Structure & Module Organization
 
-This repository is currently minimal and has no committed source tree. When adding code, keep the layout predictable:
+Keep the layout predictable:
 
 - `src/` for application or library source code.
 - `tests/` for automated tests that mirror `src/` paths.
@@ -35,7 +35,7 @@ New behavior should include focused tests for success cases and important edge c
 
 ## Commit & Pull Request Guidelines
 
-There is no Git history in this checkout, so no repository-specific commit convention can be inferred. Use concise, imperative commit messages, for example `Add input validation` or `Document setup commands`.
+Use concise, imperative commit messages, for example `Add input validation` or `Document setup commands`.
 
 Pull requests should include a short summary, the reason for the change, tests or checks performed, and screenshots for UI changes. Link related issues when available and call out follow-up work explicitly.
 
