@@ -4,6 +4,9 @@
 
 Keep the layout predictable:
 
+> Note: the list below does not match the current layout (`linc/`, `logic-llama/`, `prover9/`, `data/`, `docs/`).
+> Final placement will be decided when sorting `_incoming/`. Until then, follow the existing layout.
+
 - `src/` for application or library source code.
 - `tests/` for automated tests that mirror `src/` paths.
 - `assets/` for static files such as images, fixtures, or sample data.
@@ -65,6 +68,7 @@ Read-only inspection within the repository may be performed as needed, but imple
 - Do not run recursive searches whose scope extends outside the repository.
 - Do not use absolute paths that point outside the repository.
 - If completing a task appears to require access outside the repository, stop and ask the user for permission before accessing it.
+- Exception: after context compaction, read the current session's record as described in "After Context Compaction". This exception covers reading that record only.
 
 ### Sensitive Information
 
@@ -80,6 +84,23 @@ Read-only inspection within the repository may be performed as needed, but imple
 - Once approval is granted for a stated set of file changes, do not request approval again for individual file modifications within that approved scope.
 - Approval applies only to the specific change set described immediately before approval and does not carry over to later tasks.
 - Approval for file changes does not imply approval for dependency changes, Git operations, or other separately restricted actions.
+
+### After Context Compaction
+
+When the conversation has been compacted (earlier turns replaced by a summary), do the following before any other work:
+
+1. Read the current session's record. It is outside the repository; read it only, and do not copy, modify, or create files outside the repository while doing so.
+   - Claude Code: `~/.claude/projects/<project path with "/" replaced by "-">/<session id>.jsonl`. The compaction summary states the exact path.
+   - Codex CLI: `~/.codex/sessions/YYYY/MM/DD/rollout-*.jsonl` (based on third-party documentation; confirm the location before relying on it).
+   - Keep each read's output small. Large tool output is saved to a file outside the repository.
+2. From the record, list:
+   - instructions and rules the user gave,
+   - the exact form of commands proposed to the user (for example, Git commands and their options),
+   - commands actually executed.
+3. Report to the user:
+   - rules in the list that are not yet written in this file, with proposed wording to add them,
+   - executed commands that broke a rule.
+4. Do not resume work until the user replies to the report.
 
 ### Git Operation Restrictions
 
