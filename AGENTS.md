@@ -48,6 +48,19 @@ Keep changes narrowly scoped to the request.
 Do not introduce new dependencies, build tools, or directory structures unless they are needed for the task.
 Preserve user changes and avoid modifying unrelated files.
 
+### Communication
+
+- Answer in Japanese.
+- Explain carefully: define terms, give concrete examples, and state explicitly what acts on what. Share enough context that the user can decide without guessing.
+- Before asking for permission, state exactly what will be done.
+- Do not decide on the user's behalf. When a choice belongs to the user, ask, and keep asking until the user answers.
+- Do not present commands abruptly. Explain the situation and the options first; give concrete commands after the user decides.
+- When asking the user to run a command, also say what to check in the output and what to do with the result.
+- Proceed one step at a time and confirm each step with the user.
+- When reporting experiment or analysis results, show concrete examples together with the summary: raw data, inputs and outputs of each processing step, and how to read them.
+- Do not use decorative emoji such as ✅ or ⚠️ in documents or messages meant for sharing.
+- Mark any text drafted for sharing (Slack messages, canvases) as drafted by an AI coding agent, naming the agent (for example, Claude or Codex), and keep it short.
+
 ### Implementation Workflow
 
 Before creating files, modifying files, deleting files, or writing code, confirm the intended specification with the user.
@@ -110,10 +123,16 @@ When the conversation has been compacted (earlier turns replaced by a summary), 
 - Never create, amend, squash, reword, or delete commits without explicit user approval.
 - Never push to a remote repository without explicit user approval immediately before the push.
 - Approval for file changes does not grant approval for staging, committing, pushing, or any other Git operation.
+- The user runs all Git commands. Propose the commands needed; the user runs them after agreeing.
+- Commit messages: a one-line summary, a body describing the change, and a final `Co-Authored-By` line naming the coding agent that drafted the change (for example, Claude or Codex).
 
 ### Command Execution Restrictions
 
 - Do not install, update, or remove dependencies without explicit user approval.
 - Do not run commands that may modify the repository, project environment, or generated files unless they are within an explicitly approved change scope.
 - Read-only inspection commands and test, lint, or build commands that do not intentionally modify source files may be run without approval.
+
+### Execution Environment
+
+- Do not hard-code values defined in `.env` (Azure endpoint, deployment, API version); read them from environment variables.
 
